@@ -1,0 +1,292 @@
+/* ========== BASE RESET ========== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #8e2de2, #4a00e0);
+  color: #fff;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: background 0.3s ease;
+}
+
+body.dark-mode {
+  background: #0a0a0a;
+  color: #eee;
+}
+
+/* ========== NAVBAR ========== */
+.navbar {
+  width: 100%;
+  max-width: 900px;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  border-radius: 16px;
+  box-shadow: 0 0 20px #e600ff55;
+  margin: 10px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo {
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+
+/* ========== HAMBURGER + SIDEBAR ========== */
+.hamburger {
+  font-size: 1.5rem;
+  cursor: pointer;
+  user-select: none;
+}
+
+.sidebar {
+  position: fixed;
+  right: 0;
+  top: 0;
+  height: 100vh;
+  width: 250px;
+  background: rgba(20, 20, 20, 0.95);
+  color: white;
+  backdrop-filter: blur(15px);
+  padding: 20px;
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+  z-index: 9999;
+}
+
+.sidebar-content h2 {
+  margin-bottom: 20px;
+  border-bottom: 1px solid #999;
+  padding-bottom: 10px;
+}
+
+.sidebar-content ul {
+  list-style: none;
+}
+
+.sidebar-content li {
+  margin: 15px 0;
+}
+
+.sidebar-content button {
+  width: 100%;
+  background: #e600ff;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.sidebar-content button:hover {
+  background: #b300cc;
+}
+
+.sidebar.show {
+  transform: translateX(0);
+}
+
+.sidebar.hidden {
+  transform: translateX(100%);
+}
+
+/* ========== CONTAINER ========== */
+.container {
+  width: 100%;
+  max-width: 500px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 20px;
+  padding: 25px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 15px #e600ff33;
+  margin: 20px auto;
+}
+
+/* ========== INPUTS & BUTTONS ========== */
+input {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+input::placeholder {
+  color: #ccc;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
+  background: #e600ff;
+  border: none;
+  border-radius: 12px;
+  color: white;
+  font-weight: bold;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background: #b300cc;
+}
+
+/* ========== CHAT BOX ========== */
+#chatBox {
+  height: 300px;
+  overflow-y: auto;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 10px;
+  margin: 15px 0;
+}
+
+/* ========== MESSAGES ========== */
+#chatBox .message {
+  margin: 10px 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.message.you {
+  justify-content: flex-end;
+}
+
+.avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: #ccc;
+  display: inline-block;
+  text-align: center;
+  line-height: 32px;
+  font-weight: bold;
+  color: white;
+  flex-shrink: 0;
+}
+
+/* ========== CHAT INPUT ROW ========== */
+.message-row {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.message-row input {
+  flex: 1;
+}
+
+.message-row button {
+  width: 60px;
+  padding: 12px;
+  border-radius: 10px;
+}
+
+/* ========== LOADER ========== */
+.loader-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #0a0a0a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.loader {
+  border: 5px solid #999;
+  border-top: 5px solid #e600ff;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+}
+
+.loader-container.hide {
+  display: none;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+a{
+    color: white;
+    text-decoration: none;
+}
+
+/* ========== MEDIA QUERIES ========== */
+@media (max-width: 600px) {
+  .container {
+    margin: 10px;
+    padding: 20px;
+  }
+
+  .sidebar {
+    width: 80%;
+  }
+
+  .logo {
+    font-size: 1.2rem;
+  }
+
+  .hamburger {
+    font-size: 1.3rem;
+  }
+}
+button .dmb{
+    background-color: none;
+}
+.contacts-list {
+  margin-top: 10px;
+  list-style: none;
+  padding-left: 0;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.contacts-list li {
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.08);
+  margin: 6px 0;
+  padding: 8px;
+  border-radius: 10px;
+  gap: 10px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.contacts-list li:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.contacts-list .avatar {
+  width: 28px;
+  height: 28px;
+  font-size: 0.9rem;
+  line-height: 28px;
+}

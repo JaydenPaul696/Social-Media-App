@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ChatCode Messenger</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body class="dark-mode">
+  <!-- Navbar -->
+  <nav class="navbar">
+    <h1 class="logo">FriendChat 🔮</h1>
+    <div class="hamburger" id="hamburger">&#9776;</div>
+  </nav>
+
+  <!-- Sidebar Menu -->
+<aside id="sidebar" class="sidebar hidden">
+  <div class="sidebar-content">
+    <h2 onclick="closeMenu()">Menu</h2>
+    <ul>
+      <li><h3 id="toggleMode"onclick="closeMenu()">🌗 Toggle Dark Mode</h3></li>
+      <li></li>
+    </ul>
+<h3>🔍 Find User</h3>
+<input type="text" id="searchInput" placeholder="Search chat-code or name" oninput="searchUsers()" />
+<ul id="searchResults" class="contacts-list"></ul>
+    <h3>Contacts</h3>
+    <ul id="contactsListt" class="contacts-list">
+      <li>Loading...</li>
+    </ul>
+  </div>
+</aside>
+
+  <!-- ⏳ Loader -->
+  <div id="loader" class="loader-container hide">
+    <div class="loader"></div>
+  </div>
+
+  <!-- 🧑 Auth Box -->
+  <main class="container" id="auth-container">
+    <input type="text" id="displayName" placeholder="Display Name" />
+    <input type="email" id="email" placeholder="Email" />
+    <input type="password" id="password" placeholder="Password" />
+    <button onclick="register()">Register</button>
+    <button onclick="login()">Login</button>
+  </main>
+
+  <!-- 💬 Chat UI -->
+  <main class="container" id="chat-container" style="display:none;">
+    <h2 id="welcomeMsg"></h2>
+    <input type="text" id="friendCode" placeholder="Enter chat-code" />
+    <button onclick="startChat()">Start Chat</button>
+
+    <div id="chatBox"></div>
+
+    <div class="message-row">
+      <input type="text" id="messageInput" placeholder="Type your message" />
+      <button onclick="sendMessage()">➤</button>
+    </div>
+  </main>
+
+  <!-- Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
